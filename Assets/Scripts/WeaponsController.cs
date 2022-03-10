@@ -5,36 +5,62 @@ using StarterAssets;
 using UnityEngine.InputSystem;
 public class WeaponsController : MonoBehaviour
 {
-    private InputAction _Primary;
-    private InputAction _Secondary;
+    private InputAction fire;
+    private InputAction aim;
     private PlayerControls playerControls;
+    [SerializeField] private Transform aimTransform;
 
-    [SerializeField] private GameObject _weapon;
+    [SerializeField] private GameObject weapon;
+    private Vector3 defaultWeaponPosition;
+    private bool aiming = false;
     // Awake is called FIRST, set up connections to other things here
     // so that they are available for everyone at start.
     void Awake() {
         playerControls = new PlayerControls();
     }
     // Start is called before the first frame update
-    void Start() {
-        _Primary = playerControls.Player.Fire;
-        _Secondary = playerControls.Player.Aim;
-        _Primary.performed += _ => OnPrimary();
-        _Primary.Enable();
-        _Secondary.performed += _ => OnSecondary();
-        _Secondary.Enable();
+    void Start()
+    {
+        defaultWeaponPosition = weapon.transform.localPosition;
     }
 
-    // Update is called once per frame
-    void Update() {
+    private void OnEnable()
+    {
+        InitializeControls();
     }
 
-    void OnPrimary () {
-        Debug.Log("FUCK");
+    private void OnDisable()
+    {
+        fire.Disable();
+        aim.Disable();
     }
 
-    void OnSecondary () {
-        _weapon.transform.Translate(new Vector3(-0.2f,0,0));
+    private void InitializeControls()
+    {
+        fire = playerControls.Player.Fire;
+        aim = playerControls.Player.Aim;
+        fire.performed += _ => Fire();
+        fire.Enable();
+        aim.performed += _ => AimDownSights();
+        aim.Enable();
+    }
+
+    void Fire () 
+    {
+        Debug.Log("Bang.");
+    }
+
+    void AimDownSights () {
+        if (aiming)
+        {
+            weapon.transform.localPosition = defaultWeaponPosition;
+            aiming = false;
+        }
+        else
+        {
+            weapon.transform.localPosition = aimTransform.localPosition;
+            aiming = true;
+        }
     }
 
 }
