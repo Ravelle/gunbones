@@ -5,21 +5,22 @@ using StarterAssets;
 using UnityEngine.InputSystem;
 public class WeaponsController : MonoBehaviour
 {
+    [SerializeField] private Transform aimTransform;
+    [SerializeField] private GameObject weapon;
+
     private InputAction fire;
     private InputAction aim;
     private PlayerControls playerControls;
-    [SerializeField] private Transform aimTransform;
-
-    [SerializeField] private GameObject weapon;
+    
     private Vector3 defaultWeaponPosition;
     private bool aiming = false;
     // Awake is called FIRST, set up connections to other things here
     // so that they are available for everyone at start.
-    void Awake() {
+    private void Awake() {
         playerControls = new PlayerControls();
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         defaultWeaponPosition = weapon.transform.localPosition;
     }
@@ -29,11 +30,6 @@ public class WeaponsController : MonoBehaviour
         InitializeControls();
     }
 
-    private void OnDisable()
-    {
-        fire.Disable();
-        aim.Disable();
-    }
 
     private void InitializeControls()
     {
@@ -45,12 +41,12 @@ public class WeaponsController : MonoBehaviour
         aim.Enable();
     }
 
-    void Fire () 
+    private void Fire () 
     {
         Debug.Log("Bang.");
     }
 
-    void AimDownSights () {
+    private void AimDownSights () {
         if (aiming)
         {
             weapon.transform.localPosition = defaultWeaponPosition;
@@ -61,6 +57,13 @@ public class WeaponsController : MonoBehaviour
             weapon.transform.localPosition = aimTransform.localPosition;
             aiming = true;
         }
+    }
+
+
+    private void OnDisable()
+    {
+        fire.Disable();
+        aim.Disable();
     }
 
 }
