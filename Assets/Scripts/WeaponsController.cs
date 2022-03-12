@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class WeaponsController : MonoBehaviour
 {
     [SerializeField] private Transform aimTransform;
-    [SerializeField] private GameObject weapon;
+    [SerializeField] private Gun gun;
 
     private InputAction fire;
     private InputAction aim;
@@ -22,7 +22,7 @@ public class WeaponsController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        defaultWeaponPosition = weapon.transform.localPosition;
+        defaultWeaponPosition = gun.transform.localPosition;
     }
 
     private void OnEnable()
@@ -43,18 +43,18 @@ public class WeaponsController : MonoBehaviour
 
     private void Fire () 
     {
-        Debug.Log("Bang.");
+        gun.PullTrigger();
     }
 
     private void AimDownSights () {
         if (aiming)
         {
-            weapon.transform.localPosition = defaultWeaponPosition;
+            gun.transform.localPosition = defaultWeaponPosition;
             aiming = false;
         }
         else
         {
-            weapon.transform.localPosition = aimTransform.localPosition;
+            gun.transform.localPosition = aimTransform.localPosition;
             aiming = true;
         }
     }
