@@ -43,8 +43,7 @@ public class WeaponsController : MonoBehaviour
 
     private void Fire () 
     {
-        Debug.Log("Bang.");
-        gun.Shoot();
+        gun.PullTrigger();
     }
 
     private void AimDownSights () {
