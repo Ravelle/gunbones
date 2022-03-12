@@ -700,6 +700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5975174d402d3a44a9e7079ebbbbfa61, type: 3}
+--- !u!20 &1546534009 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+  m_PrefabInstance: {fileID: 60889539378096550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1568395010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5975174d402d3a44a9e7079ebbbbfa61, type: 3}
@@ -714,6 +719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655477799}
+  - component: {fileID: 1655477800}
   m_Layer: 0
   m_Name: GUN
   m_TagString: Untagged
@@ -736,8 +742,6 @@ Transform:
   m_Father: {fileID: 8338988565591873055}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1655477800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,10 +754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34067f5274704f042b3206774c848c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 2130227827}
+  cam: {fileID: 1546534009}
   range: 100
   maxAmmo: 17
-  logger: {fileID: 1690514836}
+  logger: {fileID: 0}
 --- !u!1 &1690514834
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +786,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1626276074}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1690514836
@@ -800,7 +804,6 @@ MonoBehaviour:
   showLogs: 1
   prefix: Combat
   prefixColor: {r: 1, g: 0.65880984, b: 0, a: 0}
->>>>>>> Stashed changes
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +934,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1020,7 +1023,7 @@ Transform:
   - {fileID: 542508512}
   - {fileID: 874605736}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114283754330233424
 GameObject:
@@ -1129,7 +1132,7 @@ Transform:
   - {fileID: 8338988565591873055}
   - {fileID: 552123222}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4416926083347132227
 GameObject:
@@ -1197,9 +1200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 1003531243}
-<<<<<<< Updated upstream
-  weapon: {fileID: 1655477798}
-=======
   gun: {fileID: 1655477800}
 --- !u!114 &4416926083347132230
 MonoBehaviour:
@@ -1328,7 +1328,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> Stashed changes
 --- !u!143 &4416926083347132233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1377,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
