@@ -25,17 +25,10 @@ public class Logger : MonoBehaviour
         LogFunction($"<color={hexColor}> {prefix} ({obj.name})</color>: {msg}");
 #endif
     }
-    public void Log(Object obj, object msg)
-    {
-        DoLog(Debug.Log, obj, msg);
-    }
 
-    public void LogWarning(Object obj, object msg)
-    {
-        DoLog(Debug.LogWarning, obj, msg);
-    }
-    public void LogError(Object obj, object msg)
-    {
-        DoLog(Debug.LogError, obj, msg);
-    }
+    public void Log(Object obj, object msg) => DoLog(Debug.Log, obj, msg);
+
+    public void LogWarning(Object obj, object msg) => DoLog(Debug.LogWarning, obj, msg);
+
+    public void LogError(Object obj, object msg) => DoLog(Debug.LogError, obj, msg);
 }
