@@ -39,9 +39,9 @@ public class Gun : MonoBehaviour
         SpendAmmo();
     }
 
-    public void PlayShoot()
+    public void Cock()
     {
-        randomAudioPlayer.Play("shoot");
+        animator.Play("Cock");
     }
 
     private void SpendAmmo()

@@ -10,8 +10,8 @@ public class AnimationEventHandler : MonoBehaviour
     {
         randomAudioPlayer = GetComponentInParent<RandomAudioPlayer>();
     }
-    public void PlayShootAudio()
+    public void PlayAudio(string library)
     {
-        randomAudioPlayer.Play("shoot");
+        randomAudioPlayer.Play(library);
     }
 }

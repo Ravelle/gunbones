@@ -10,6 +10,7 @@ public class WeaponsController : MonoBehaviour
 
     private InputAction fire;
     private InputAction aim;
+    private InputAction cock;
     private PlayerControls playerControls;
     
     private Vector3 defaultWeaponPosition;
@@ -35,15 +36,23 @@ public class WeaponsController : MonoBehaviour
     {
         fire = playerControls.Player.Fire;
         aim = playerControls.Player.Aim;
+        cock = playerControls.Player.Cock;
         fire.performed += _ => Fire();
         fire.Enable();
         aim.performed += _ => AimDownSights();
         aim.Enable();
+        cock.performed += _ => Cock();
+        cock.Enable();
     }
 
     private void Fire () 
     {
         gun.PullTrigger();
+    }
+
+    private void Cock()
+    {
+        gun.Cock();
     }
 
     private void AimDownSights () {
